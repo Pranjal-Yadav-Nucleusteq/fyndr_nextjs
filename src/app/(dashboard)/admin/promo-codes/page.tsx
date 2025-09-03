@@ -37,7 +37,7 @@ const PromoCodes = async ({
       </div>
 
       <div className="mt-4 pl-4">
-        <p className="text-lg font-medium">History</p>
+        <p className="text-lg font-medium">Historyy</p>
         <Expiredpromos data={expiredData?.promocodesList} />
       </div>
     </ContainerWrapper>
