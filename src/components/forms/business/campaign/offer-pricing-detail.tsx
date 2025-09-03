@@ -54,7 +54,7 @@ const OfferPricingDetails = ({ form }: Props) => {
         payload.discountType || "%"
       );
     } else {
-      form.setValue("offerPrice", "");
+      form.setValue("offerPrice", 0);
     }
   }, [payload.retailPrice, payload.amount, payload.discountType]);
 
@@ -199,6 +199,7 @@ const OfferPricingDetails = ({ form }: Props) => {
               <FormControl>
                 <Input
                   {...field}
+                  value={field.value ?? ""}
                   label="Tax Percentage"
                   info
                   disabled={!taxToggle}
@@ -210,7 +211,7 @@ const OfferPricingDetails = ({ form }: Props) => {
                       onCheckedChange={(checked) => {
                         setTaxToggle(checked);
                         form.setValue("stdTax", !checked);
-                        form.setValue("taxPercent", checked ? field.value : "");
+                        form.setValue("taxPercent", checked ? field.value : 0);
                       }}
                     />
                   }

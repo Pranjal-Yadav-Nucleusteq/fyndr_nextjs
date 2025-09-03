@@ -56,3 +56,5 @@ export const CATEGORY_ICON_MAP = new Map<string, string>([
   ["travel", ASSETS.ICONS.CATEGORIES.TRAVEL],
   ["other", ASSETS.ICONS.CATEGORIES.OTHER],
 ]);
+
+export const WHOLE_UNITS = ["each", "set", "box", "pair"];

@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { cn } from "@/lib/utils";
 import { parseAmount } from "@/lib/utils/parser";
 import { CurrencySymbol } from "@/types/global";
 
@@ -8,11 +9,23 @@ type ItemCardProps = {
   name: string;
   price: number;
   currencySymbol: CurrencySymbol;
+  className?: string;
 };
 
-const ItemCard = ({ imgUrl, name, currencySymbol, price }: ItemCardProps) => {
+const ItemCard = ({
+  imgUrl,
+  name,
+  currencySymbol,
+  price,
+  className,
+}: ItemCardProps) => {
   return (
-    <div className="flex-between w-full flex-row gap-4 rounded-10 border border-secondary-20 bg-primary-10 px-5 py-4 text-black-80">
+    <div
+      className={cn(
+        "flex-between w-full flex-row gap-4 rounded-10 border border-secondary-20 bg-primary-10 px-5 py-4 text-black-80",
+        className
+      )}
+    >
       <div className="flex flex-row items-center gap-4">
         <Image
           src={imgUrl}

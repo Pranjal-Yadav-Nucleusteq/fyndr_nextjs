@@ -11,7 +11,7 @@ export type LocationData = {
   objid: number;
   addressLine1: string;
   addressLine2: string;
-  catalogueName: string;
+  catalogueName: string | null;
   state: string;
   key?: number;
 };

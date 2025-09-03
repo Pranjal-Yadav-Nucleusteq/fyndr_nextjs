@@ -14,21 +14,21 @@ import { OfferSchema } from "./schema";
 export type OfferFormValues = z.infer<typeof OfferSchema>;
 const defaultValues: OfferFormValues = {
   title: "",
-  amount: "",
+  amount: 0,
   discountType: "%",
   retailPrice: 0,
-  offerPrice: "",
+  offerPrice: 0,
   offersAvailable: null,
-  offerLimit: "",
+  offerLimit: 0,
   currency: "USD",
   currencySymbol: "$",
   status: "active",
   isNew: true,
   offerType: "offers",
-  usageLimit: "",
+  usageLimit: 0,
   validityPeriod: "CMPN",
   stdTax: false,
-  taxPercent: "",
+  taxPercent: 0,
   isBookingEnabled: true,
   displayOrder: 1,
   repurchasePeriod: 0,
@@ -36,7 +36,7 @@ const defaultValues: OfferFormValues = {
   voucherFileName: null,
   isVoucher: null,
   couponCode: null,
-  offerSold: "",
+  offerSold: 0,
 };
 
 type Props = {

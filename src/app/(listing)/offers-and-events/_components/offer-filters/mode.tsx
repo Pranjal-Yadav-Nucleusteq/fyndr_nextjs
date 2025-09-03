@@ -44,7 +44,7 @@ const Mode = () => {
         stdHeight
         onClick={() => setActiveMode("online")}
       >
-        Online
+        Nationwide
       </Button>
     </div>
   );

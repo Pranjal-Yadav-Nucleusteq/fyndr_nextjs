@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
-import { CreateCampaignPayload } from "@/types/campaign";
+import { CreateCampaignPayload } from "@/types/campaign/campaign.types";
 
 interface CampaignStore {
   campaignPayload: Partial<CreateCampaignPayload>;

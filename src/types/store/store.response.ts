@@ -84,7 +84,10 @@ export type GetStoreResponse = {
     url: string;
   };
   businessWorkingHours: BusinessWorkingHour;
-  catalogueAppointmentType: "APPOINTMENT_PER_ITEM" | string;
+  catalogueAppointmentType:
+    | "APPOINTMENT_PER_ITEM"
+    | "APPOINTMENT_PER_CART"
+    | null;
   catalogBookingEnabled: boolean;
 };
 

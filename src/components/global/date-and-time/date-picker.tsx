@@ -36,6 +36,7 @@ type Props = {
   defaultMonth?: Date | undefined;
   formatters?: Partial<Formatters> | undefined;
   components?: Partial<CustomComponents>;
+  compact?: boolean;
 };
 
 export function DatePicker({
@@ -52,9 +53,39 @@ export function DatePicker({
   defaultMonth,
   formatters,
   components,
+  compact = false,
 }: Props) {
   const [open, setOpen] = React.useState(false);
   // const [localDate, setLocalDate] = React.useState<Date | undefined>(date);
+
+  if (compact) {
+    return (
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <CalendarDays className="!size-6 cursor-pointer text-black-heading" />
+        </PopoverTrigger>
+        <PopoverContent className="w-auto overflow-hidden p-0" align="start">
+          <Calendar
+            mode="single"
+            selected={date}
+            captionLayout={captionLayout}
+            onSelect={(date) => {
+              onDateChange?.(date);
+              setOpen(false);
+            }}
+            defaultMonth={defaultMonth}
+            classNames={classNames}
+            className={className}
+            disabled={disabled}
+            modifiers={modifiers}
+            modifiersClassNames={modifiersClassNames}
+            formatters={formatters}
+            components={components}
+          />
+        </PopoverContent>
+      </Popover>
+    );
+  }
 
   return (
     <InputWrapper className={cn("max-w-64", wrapperClassName)}>

@@ -36,12 +36,22 @@ const TimeSlotCard = ({
   const formattedEndTime = formatTime(endTime);
 
   return (
-    <div className="relative">
+    <div
+      className={cn(
+        `relative rounded-10 body-3`,
+        isSelected
+          ? "!border-indicator-green-90 !bg-indicator-green-90 !text-white hover:!bg-indicator-green-90 hover:!text-white"
+          : "",
+        "disabled:!border-secondary-20 disabled:!bg-secondary-20 disabled:!text-white disabled:hover:!bg-secondary-20 disabled:hover:!text-secondary-20",
+        className
+      )}
+    >
       <Button
         type="button"
         variant="primary-outlined"
         onClick={onClick}
         className={cn(
+          "w-full",
           isSelected
             ? "!border-indicator-green-90 !bg-indicator-green-90 !text-white hover:!bg-indicator-green-90 hover:!text-white"
             : "",

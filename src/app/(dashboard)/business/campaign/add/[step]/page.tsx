@@ -9,11 +9,10 @@ import DefaultCard from "@/components/global/cards/default-card";
 import Switch from "@/components/global/input/switch";
 import StepperComponent from "@/components/global/stepper-component";
 import toast from "@/components/global/toast";
+import { CreateCampaignPayload } from "@/types/campaign/campaign.types";
 import { useCampaignStore } from "@/zustand/stores/campaign.store";
 
 import { steps } from "../_components/steps";
-
-import { CreateCampaignPayload } from "@/types/campaign";
 
 const StepPage = () => {
   const router = useRouter();

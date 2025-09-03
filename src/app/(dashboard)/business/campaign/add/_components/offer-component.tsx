@@ -68,7 +68,7 @@ const OfferComponent = () => {
                   </span>
                   <span className="text-sm text-black-70">
                     Per User Limit:
-                    {item.usageLimit === -1 || item.usageLimit === ""
+                    {item.usageLimit === -1 || item.usageLimit === null
                       ? "Unlimited"
                       : item.usageLimit}
                   </span>

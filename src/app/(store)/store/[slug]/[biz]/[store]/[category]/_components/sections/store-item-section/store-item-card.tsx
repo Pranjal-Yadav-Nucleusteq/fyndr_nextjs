@@ -13,12 +13,16 @@ type Props = {
   storeItem: StoreItem;
   appointmentType: GetStoreResponse["catalogueAppointmentType"];
   bookingEnabled: GetStoreResponse["catalogBookingEnabled"];
+  country: string;
+  postalCode: string;
 };
 
 const StoreItemCard = ({
   storeItem,
   appointmentType,
   bookingEnabled,
+  country,
+  postalCode,
 }: Props) => {
   const imageUrl =
     storeItem.item?.images?.[0]?.img_url || ASSETS.IMAGES.PLACEHOLDER.FYNDR;
@@ -49,6 +53,8 @@ const StoreItemCard = ({
           storeItem={storeItem}
           appointmentType={appointmentType}
           bookingEnabled={bookingEnabled}
+          country={country}
+          postalCode={postalCode}
         />
       </div>
     </div>

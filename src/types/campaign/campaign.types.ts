@@ -151,3 +151,35 @@ export type Campaign = {
   likedCount: number;
   campaignLiked: boolean;
 };
+
+export type CreateCampaignImage = {
+  index: number;
+  img: string;
+  thumbnail: string;
+};
+
+export type CreateCampaignPayload = {
+  bizid: number;
+  brochureFile: null | unknown;
+  campaignStatus: CampaignStatusProps;
+  campaignVideo: null | unknown;
+  categoryId: number;
+  cmpnImgs: CreateCampaignImage[];
+  cmpnLocs: number[];
+  cmpnType: CampaignTypeProps;
+  cmpnUrl: string | null;
+  country: string;
+  dc: string;
+  descr: string;
+  startDt: string;
+  endDt: string;
+  createdDt: string;
+  lastUpdatedBy: number;
+  status: CampaignStatusProps2;
+  tags: string | null;
+  title: string;
+  offers: CampaignOffer[];
+  objid?: number;
+  goal: string;
+  finePrint: string;
+};

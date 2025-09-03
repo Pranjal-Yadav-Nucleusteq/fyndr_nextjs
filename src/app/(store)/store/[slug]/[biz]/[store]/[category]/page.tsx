@@ -5,6 +5,7 @@ import { onGetStore, onGetStoreDetails } from "@/actions/store.action";
 import ASSETS from "@/constants/assets";
 import { RouteParams } from "@/types/global";
 
+import DefaultDataFiller from "./_components/helpers/default-data-filler";
 import BannerSection from "./_components/sections/banner-section";
 import StoreItemSection from "./_components/sections/store-item-section";
 
@@ -45,20 +46,6 @@ const StoreDetails = async ({ searchParams, params }: RouteParams) => {
   const { bizId, storeId, categoryId } = extractRouteIds(routeParams);
   if (!locationId) return notFound();
 
-  // const { success, data: store } = await onGetStoreDetails({
-  //   params: {
-  //     bizId,
-  //     catalogueId: storeId,
-  //     categoryId,
-  //   },
-  // });
-
-  // const { success: storeSuccess, data: storeData } = await onGetStore({
-  //   params: {
-  //     locationId: Number(locationId),
-  //   },
-  // });
-
   const [storeDetailsAPIData, storeAPIata] = await Promise.all([
     onGetStoreDetails({
       params: {
@@ -85,6 +72,8 @@ const StoreDetails = async ({ searchParams, params }: RouteParams) => {
 
   const storeAppointmentType = storeData.catalogueAppointmentType;
   const storeBookingEnabled = storeData.catalogBookingEnabled;
+  const country = storeData.parentLocation.country;
+  const postalCode = storeData.parentLocation.postalCode;
 
   return (
     <main className="my-10 flex flex-col items-center justify-center p-4">
@@ -110,8 +99,21 @@ const StoreDetails = async ({ searchParams, params }: RouteParams) => {
           query={query}
           appointmentType={storeAppointmentType}
           bookingEnabled={storeBookingEnabled}
+          country={country}
+          postalCode={postalCode}
         />
       </div>
+      <DefaultDataFiller
+        bizId={bizId}
+        storeId={storeId}
+        locationId={Number(locationId)}
+        storeUrl={storeData.catalogue.url}
+        bizName={storeData.biz.bizName}
+        storeName={storeData.catalogue.name}
+        appointmentType={storeData.catalogueAppointmentType}
+        country={storeData.parentLocation.country}
+        postalCode={storeData.parentLocation.postalCode}
+      />
     </main>
   );
 };

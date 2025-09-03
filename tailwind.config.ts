@@ -92,6 +92,7 @@ export default {
       boxShadow: {
         pagination: "0px -4px 11px 0px #0000000D",
         card: "0px 4px 4px 0px #0000001A",
+        row: "0px 4px 4px 0px #00000014",
         switchUnchecked:
           "-5px 0px 4px 0px #00000040 inset, 4px 0px 4px 0px #FFFFFF0F inset",
         switchChecked:

@@ -6,6 +6,7 @@ import RatingAndReviewModal from "@/components/global/rating-and-reviews/busines
 import ASSETS from "@/constants/assets";
 import { RouteParams } from "@/types/global";
 
+import DefaultDataFiller from "./[biz]/[store]/[category]/_components/helpers/default-data-filler";
 import BannerImageSection from "./_components/sections/banner-image-section";
 import CategorySection from "./_components/sections/category-section";
 import StoreDetailsSection from "./_components/sections/store-details-section";
@@ -94,6 +95,17 @@ const Store = async ({ searchParams, params }: RouteParams) => {
           showHeading={false}
         />
       </RatingAndReviewModal>
+      <DefaultDataFiller
+        bizId={store.biz.bizid}
+        storeId={store.catalogue.objid}
+        locationId={Number(locationId)}
+        storeUrl={store.catalogue.url}
+        bizName={store.biz.bizName}
+        storeName={store.catalogue.name}
+        appointmentType={store.catalogueAppointmentType}
+        country={store.parentLocation.country}
+        postalCode={store.parentLocation.postalCode}
+      />
     </>
   );
 };

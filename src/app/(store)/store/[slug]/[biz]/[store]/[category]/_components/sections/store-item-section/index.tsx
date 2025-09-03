@@ -21,6 +21,8 @@ type Props = {
   query: string;
   appointmentType: GetStoreResponse["catalogueAppointmentType"];
   bookingEnabled: GetStoreResponse["catalogBookingEnabled"];
+  country: string;
+  postalCode: string;
 };
 
 const StoreItemSection = ({
@@ -33,7 +35,8 @@ const StoreItemSection = ({
   query,
   appointmentType,
   bookingEnabled,
-  // locationId,
+  country,
+  postalCode,
 }: Props) => {
   const filteredItems = storeItems.filter((item) => {
     if (!query || query.trim() === "") {
@@ -72,6 +75,8 @@ const StoreItemSection = ({
                 storeItem={storeItem}
                 appointmentType={appointmentType}
                 bookingEnabled={bookingEnabled}
+                country={country}
+                postalCode={postalCode}
               />
             ))}
           </div>
